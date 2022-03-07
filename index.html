@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap" rel="stylesheet">
+    <title>zepto</title>
+</head>
+<style>
+*{
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+}
+.topnav {
+  overflow: hidden;
+  height:48px;
+  background-color: rgb(255, 255, 255);
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: rgb(51, 51, 51);
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.topnav a:hover {
+  /* background-colo */
+  color: #F16331;
+}
+.topnav img{
+    height:42px;
+    padding:0px;
+    margin:0px;
+}
+.topnav i{
+    color: rgb(131, 131, 131);
+    font-size: 25px;
+    margin:0.5vw;
+    float:right;
+}
+.topnav i:hover{
+    color: #F16331;
+}
+.topnav .icon {
+  display: none;
+}
+#home{
+    background-image: url(images/home-bg.jpg);
+    box-shadow: 0px -15px 10px -15px lightgray; 
+    background-size: 100vw 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding:5vw;
+    flex-wrap: wrap;
+}
+#home .content{
+    width:500px;
+    margin:10px;
+    color:rgb(51, 51, 51);
+}
+#home .content h1{
+    font-weight: 15000px;
+    font-size: 8vh;
+}
+#home img{
+    height:420px;
+    margin:10px;
+    animation: float 3s linear infinite;
+}
+@keyframes float{
+    0%,100%{
+        transform:translateY(0rem);
+    }
+    50%{
+        transform: translateY(3rem);
+    }
+}
+.btn{
+    font-size: 20px;
+    padding:10px;
+    border: 2px solid #F16331;
+    color:#F16331;
+    border-radius: 5px;
+    background-color: white;
+}
+.btn:hover{
+    background-color: #F16331;
+    color:white;
+}
+#special{
+    background-color: rgb(240, 240, 240);
+    padding:10px;
+}
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+}
+.heading h1{
+    font-weight: bolder;
+    color:rgb(51, 51, 51);
+    margin:4px;
+}
+.heading .color{
+    color:#F16331;
+}
+.speciality{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:9vw;
+    padding-right: 9vw;
+    flex-wrap: wrap;
+}
+#special .sfoods{
+    border:1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    width:280px;
+    margin:10px;
+    padding:8px;
+    background-color: white;
+}
+#special .block:hover .sfoods{
+    transform: translateY(105%);
+}
+#special .block{
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+#special .block .bimg{
+    border-radius: 5px;
+    width: 340px;
+    object-fit: cover;
+    position: absolute;
+    top:-100%; left:0;
+}
+#special .block:hover .bimg{
+    top:4%;
+}
+#popular{
+    background-color: rgb(240, 240, 240);
+}
+#popular img{
+    height:180px;
+    border-radius: 5px;
+    transition: transform .2s;
+    position: relative;
+}
+#popular .food{
+    padding:12px;
+    text-align: center;
+    width:280px;
+    background-color: white;
+    border:2px solid gray;
+    border-radius: 5px;
+    margin:10px;
+}
+#popular img:hover{
+    transform: scale(1.1);
+}
+#popular i{
+    color:rgb(255, 208, 0);
+    font-size: 20px;
+}
+.works .steps{
+    width:200px;
+    margin:22px;
+    text-align: center;
+    transition: transform .2s;
+    position: relative;
+}
+.works .steps:hover{
+    transform: scale(1.1);
+}
+#gallery{
+    background-color: rgb(240, 240, 240);
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+#gallery img{
+    height: 215px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+#gallery .gimg{
+    margin:6px;
+    width:322px;
+    background-color: white;
+    border:10px solid white;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+#gallery .gimg .gblock{
+    position: absolute;
+    top:-100%; left:0;
+    background:rgba(255,255,255,.9);
+    text-align: center;
+    height:220px;
+}
+#gallery .gimg:hover .gblock{
+    top:0;
+}
+#review{
+    background-color: rgb(240, 240, 240);
+}
+#review .reviews{
+    background-color: rgba(0, 0, 0, 0.712);
+    color:white;
+    padding:5px;
+    border:10px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin:10px;
+    width:280px;
+    text-align: center;
+}
+#review .reviews i{
+    color: rgb(248, 80, 38);
+    font-size: 20px;
+}
+#review img{
+    border-radius: 100px;
+    height:100px;
+    border:10px solid white;
+}
+#order{
+    background-color: rgb(240, 240, 240);
+    align-items: center;
+    justify-content: center;
+}
+#order img{
+    height:300px;
+    border-radius: 5px;
+    margin:10px;
+}
+#order input{
+    font-size: 15px;
+    width:200px;
+    margin:10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding:5px;
+}
+#order .box{
+    background-color: white;
+    width:70vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10vw;
+    border-radius: 10px;
+}
+#order #address{
+    width:420px;
+    height:100px;
+}
+.footer{
+    background-color: black;
+    color: white;
+    padding:10px;
+    padding-left:20vw;
+    padding-right:20vw;
+    text-align: center;
+}
+.footer button{
+    background-color: black;
+    margin:10px;
+}
+.footer button:hover{
+    background-color: #F16331;
+    color: white;
+}
+#scroll-top{
+  position: fixed;
+  top:-100%;
+  transition: 1s linear;
+  z-index: 1000;
+}
+#scroll-top.active{
+  top:calc(100% - 12rem)
+}
+.loader-container{
+  position: fixed;
+  top:0; left:0;
+  z-index: 10000;
+  background:#fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+  width:100%;
+}
+.loader-container.fade-out{
+  top:-120%;
+}
+@media (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+@media(max-width:600px){
+    .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    color: #F16331;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  #home{
+      background-size: 100vw;
+  }
+  #home img{
+      width:300px;
+      height:350px;
+      margin:10px;
+      padding:0px;
+  }
+  #order .box{
+      width:95vw;
+      margin: 5px;
+  }
+  #order img{
+      width:300px;
+      height:250px;
+  }
+  #order form{
+    margin-left: 10vw;
+  }
+  #order input{
+      width:300px;
+  }
+  #order #address{
+      width:300px;
+  }
+}
+</style>
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="#" class="active"><img src="images/food-logo-smile-logo.jpg"</a>
+        <a href="#home">Home</a>
+        <a href="#special">Speciality</a>
+        <a href="#popular">Popular</a>
+        <a href="#review">Review</a>
+        <a href="#order">Order</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+      </script>
+    <div id="home">
+        <div class="content">
+        <h1>Food made with Love</h1>
+        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore hic in harum assumenda perspiciatis reiciendis dolorum fugit architecto, vero cupiditate corrupti qui error quae fuga at ratione iure repudiandae accusantium</h3>
+        <a href="#order"><button class="btn">Order Now</button></a>
+        </div>
+        <img src="images/home-img.png">
+    </div>
+    <div id="special">
+    <div class="heading">
+    <h1>Our</h1><h1 class="color">Special</h1><h1>Dishes</h1></div>
+    <div class="speciality">
+    <div class="block">
+    <img class="bimg" src="images/s-img-1.jpg">
+        <div class="sfoods">
+            <img src="images/s-1.png">
+            <h2>Tasty Burgers</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero.</p>
+        </div></div>
+        <div class="block">
+            <img class="bimg" src="images/s-img-2.jpg">
+        <div class="sfoods">
+        <img src="images/s-2.png">
+            <h2>Tasty Pizza</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero.</p>
+        </div></div>
+        <div class="block">
+            <img class="bimg" src="images/s-img-3.jpg">
+        <div class="sfoods">
+        <img src="images/s-3.png">
+            <h2>Ice-Cream</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero</p>
+        </div></div>
+        <div class="block">
+        <img class="bimg" src="images/s-img-4.jpg">
+        <div class="sfoods">
+        <img src="images/s-4.png">
+            <h2>Cold Beverages</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero</p>
+        </div></div>
+        <div class="block">
+        <img class="bimg" src="images/s-img-5.jpg">
+        <div class="sfoods">
+        <img src="images/s-5.png">
+            <h2>Tasty Sweets</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero.</p>
+        </div></div>
+        <div class="block">
+        <img class="bimg" src="images/s-img-6.jpg">
+        <div class="sfoods">
+            <img src="images/s-6.png">
+            <h2>Healthy Breakfast</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas possimus sapiente explicabo sint repellat vero.</p>
+        </div></div>
+    </div><br>
+    </div>
+    <div id="popular">
+    <div class="heading">
+    <h1>Most</h1><h1 class="color">Popular</h1><h1>Foods</h1></div>
+    <div class="speciality">
+        <div class="food">
+            <img src="images/p-1.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+        <div class="food">
+            <img src="images/p-2.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+        <div class="food">
+            <img src="images/p-3.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+        <div class="food">
+            <img src="images/p-4.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+        <div class="food">
+            <img src="images/p-5.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+        <div class="food">
+            <img src="images/p-6.jpg">
+            <h2>Tasty Burgers</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><br><br>
+            <button class="btn">Order Now</button><br>
+        </div>
+    </div>
+    <br>
+    </div><br>
+    <div class="works">
+    <div class="heading">
+    <h1>How</h1><h1 class="color">It</h1><h1>Works</h1></div>
+    <div class="speciality">
+        <div class="steps">
+            <img src="images/step-1.jpg">
+            <h2>Choose your favourite Food</h2>
+        </div>
+        <div class="steps">
+            <img src="images/step-2.jpg">
+            <h2>Free and Fast Delivery</h2>
+        </div>
+        <div class="steps">
+            <img src="images/step-3.jpg">
+            <h2>Easy Payment Methods</h2>
+        </div>
+        <div class="steps">
+            <img src="images/step-4.jpg">
+            <h2>And Finally, Enjoy Your Food</h2>
+        </div>
+    </div>
+    </div>
+    <div id="gallery">
+    <div class="heading">
+    <h1>Our</h1><h1>Food</h1><h1 class="color">Gallery</h1></div>
+    <div class="speciality">
+    <div class="gimg">
+    <img src="images/g-1.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-2.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-3.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-4.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-5.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-6.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-7.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-8.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    <div class="gimg">
+    <img src="images/g-9.jpg">
+    <div class="gblock">
+        <h2>Tasty Food</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe, reprehenderit</p>
+        <button class="btn">Order Now</button>
+    </div></div>
+    </div><br>
+   </div>
+   <div id="review">
+    <div class="heading">
+    <h1>Our</h1><h1>Customers</h1><h1 class="color">Review</h1></div>
+    <div class="speciality">
+        <div class="reviews">
+            <img src="images/pic1.png">
+            <h2>John Doe</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos illo vitae cupiditate, iusto molestias possimus expedita</p>
+        </div>
+        <div class="reviews">
+            <img src="images/pic2.png">
+            <h2>John Doe</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos illo vitae cupiditate, iusto molestias possimus expedita</p>
+        </div>
+        <div class="reviews">
+            <img src="images/pic3.png">
+            <h2>John Doe</h2>
+            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dignissimos illo vitae cupiditate, iusto molestias possimus expedita</p>
+        </div>
+    </div><br>
+   </div>
+   <div id="order">
+    <div class="heading">
+    <h1 class="color">Order</h1><h1>Now</h1></div>
+    <div class="box">
+    <img src="images/order-img.jpg">
+    <form action="index.php" method="post">
+        <input type="text" id="fname" name="fname" placeholder="Name">
+        <input type="text" id="email" name="email" placeholder="Email"><br>
+        <input type="text" id="phone" name="phone" placeholder="Contact">
+        <input type="text" id="order" name="order" placeholder="Order"><br>
+        <input type="text" id="address" name="address" placeholder="Address"><br><br>
+        <button class="btn">Order Now</button>
+    </form>
+    </div><br><br>
+   </div>
+   <div class="footer">
+    <div class="handles">
+    <button class="btn">Facebook</button><button class="btn">Twitter</button><button class="btn">Instagram</button><button class="btn">Linkedin</button><button class="btn">Youtube</button>
+    </div>
+    <h3>Created By Kavery Pandey | All Rights Reserved! </h3>
+   </div>
+   <a href="#home" id="scroll-top"><i class="fa-solid fa-arrow-up"></i></a>
+   <div class="loader-container">
+    <img src="images/loader.gif" alt="">
+   </div>
+</body>
+<script>
+window.onscroll = () =>{
+menu.classList.remove('fa-times');
+navbar.classList.remove('active');
+
+if(window.scrollY > 60){
+  document.querySelector('#scroll-top').classList.add('active');
+}else{
+  document.querySelector('#scroll-top').classList.remove('active');
+}}
+function loader(){
+document.querySelector('.loader-container').classList.add('fade-out');
+}
+function fadeOut(){
+setInterval(loader, 3000);
+}
+window.onload = fadeOut();
+</script>
+</html>
